@@ -165,6 +165,63 @@ function init() {
 
     map.addLayer({
        'id': layer.id,
+       'type': 'heatmap',
+       'source': layer.id,
+        'maxzoom': 15
+       'paint': {
+        // increase weight as number of collisions at that point increases
+        'heatmap-weight': {
+        'property': 'col_total'
+        'type': 'exponential',
+        'stops': [
+        [1, 0],
+        [62, 1]
+        ]
+    },
+                 // increase intensity as zoom level increases
+                 'heatmap-intensity': {
+                 'stops': [
+                 [11, 1],
+                 [15, 3]
+                 ]
+                 },
+                 //assign colour values to points depending on their density
+                 'heatmap-color': [
+                 'interpolate',
+                 ['linear'],
+                 ['heatmap-density']
+                 0, 'rgba(236,222,239,0)',
+                 2, 'rgb(208,209,230)',
+                 4, 'rgb(166,189,219)',
+                 6, 'rgb(103,169,207)',
+                 8, 'rgb(28,144,153)'
+                 ],
+                 // increase radius as zoom increases
+                 'heatmap-radius': {
+                 'stops': [
+                 [11, 15],
+                 [15, 20]
+                 ]
+                 },
+                 // decrease opacity to transition into the circle layer
+                 'heatmap-opacity': {
+                 'default': 1,
+                 'stops': [
+                 [14, 1],
+                 [15, 0]
+                 ]
+                 },
+                 }
+                 }, 'waterway-label');
+         
+      
+  })
+}
+    
+    
+    
+    map.addLayer({
+       'id': layer.id,
        'type': 'circle',
        'source': layer.id,
        'paint': {
