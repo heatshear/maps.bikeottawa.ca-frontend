@@ -172,7 +172,7 @@ function init() {
        'paint': {
         // increase weight as number of collisions at that point increases
         'heatmap-weight': {
-        'property': 'col_total'
+        'property': 'col_total',
         'type': 'exponential',
         'stops': [
         [1, 0],
@@ -191,7 +191,7 @@ function init() {
                  'heatmap-color': [
                  'interpolate',
                  ['linear'],
-                 ['heatmap-density']
+                 ['heatmap-density'],
                  0, 'rgba(236,222,239,0)',
                  2, 'rgb(208,209,230)',
                  4, 'rgb(166,189,219)',
@@ -216,7 +216,7 @@ function init() {
                  },
                  }
                  }, 'waterway-label');
-  })
+
        
     //add circle layer
     
