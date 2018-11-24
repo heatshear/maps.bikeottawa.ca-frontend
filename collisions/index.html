@@ -162,7 +162,8 @@ function init() {
         type: 'geojson',
         data: layer.url
     });
-
+      
+//add heatmap layer
     map.addLayer({
        'id': layer.id,
        'type': 'heatmap',
@@ -215,9 +216,9 @@ function init() {
                  },
                  }
                  }, 'waterway-label');
-         
+  })
        
-    
+    //add circle layer
     
     map.addLayer({
        'id': layer.id,
@@ -258,7 +259,7 @@ function init() {
     }, 'waterway-label');
   })
 }
-
+   
 function updateSlider(){
   const type = map.getFilter(years[activeLayer].id)[1]
   const max = years[activeLayer][type]
