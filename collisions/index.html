@@ -164,10 +164,10 @@ function init() {
     });
 
     map.addLayer({
-       'id': layer.id,
-       'type': 'heatmap',
-       'source': layer.id,
-        'maxzoom': 15
+       id: layer.id,
+       type: 'heatmap',
+       source: layer.id,
+        'maxzoom': 15,
        'paint': {
         // increase weight as number of collisions at that point increases
         'heatmap-weight': {
@@ -185,6 +185,7 @@ function init() {
                  [15, 3]
                  ]
                  },
+                 
                  //assign colour values to points depending on their density
                  'heatmap-color': [
                  'interpolate',
@@ -196,6 +197,7 @@ function init() {
                  6, 'rgb(103,169,207)',
                  8, 'rgb(28,144,153)'
                  ],
+                 
                  // increase radius as zoom increases
                  'heatmap-radius': {
                  'stops': [
